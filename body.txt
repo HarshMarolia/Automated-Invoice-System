@@ -1,0 +1,35 @@
+{
+  headers: {
+    "content-type": "application/json",
+    "ci-api-key": "a14f0e82e5c44429a71ea0c367bdee914e559dea30f33703e97e4600abc372e1e1af790146ad986a4e561c11ee3344fabb3f964346e8143d43479b19e9f8f20d55a34b65968e17d55b1479874abea889919848c659bb43bba694ddbcaf3636a04affaa38",
+    username: "Harsh",
+    password: "123"
+  },
+  url: "http://localhost:3000/api/addinvoice",
+  body: [
+    {
+      invoiceNum: "1",
+      invoiceStartDate: "12-Jul-2022",
+      invoiceEndDate: "20-Jul-2022",
+      invoiceAmount: 100000,
+      discountAmount: 1000000,
+      disbursedTotal: 1000000,
+      disbursedDate: "20-Jul-2022",
+      repaymentDate: "20-Jul-2022",
+      buyerID: "abc123",
+      sellerID: "1234"
+    },
+    {
+      invoiceNum: "2",
+      invoiceStartDate: "12-Jul-2022",
+      invoiceEndDate: "20-Jul-2022",
+      invoiceAmount: 100000,
+      discountAmount: 1000000,
+      disbursedTotal: 1000000,
+      disbursedDate: "20-Jul-2022",
+      repaymentDate: "20-Jul-2022",
+      buyerID: "abc123",
+      sellerID: "1234"
+    }
+  ]
+}

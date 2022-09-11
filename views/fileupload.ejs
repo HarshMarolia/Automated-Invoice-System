@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <style>
+        body {
+            background-color: rgb(6, 26, 27);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 60px auto;
+        }
+
+        .container h1 {
+            text-align: center;
+            color: white;
+        }
+
+        form {
+            background-color: white;
+            padding: 30px;
+        }
+
+        form .input-group {
+            margin-bottom: 15px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input {
+            padding: 12px 20px;
+            width: 100%;
+            border: 1px solid #ccc;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            background: rgb(37, 83, 3);
+            font-size: 18px;
+            color: white;
+            border-radius: 3px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>File Upload</h1>
+        <form action="uploadfiles" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <label for='files'>Select files</label>
+                <input id='files' type="file" name="file" multiple />
+            </div>
+            <button class="submit-btn" type='submit'>Upload</button>
+        </form>
+    </div>
+</body>
+
+</html>

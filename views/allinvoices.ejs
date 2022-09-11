@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <title>All Invoices</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+            </ul> -->
+          </div>
+        </div>
+      </nav>
+    <div class="container-fluid my-3">
+        <h1 class="text-center">Your Invoices</h1>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr class="table-dark">
+                    <th scope="col">InvoiceNum</th>
+                    <th scope="col">InvoiceStartDate</th>
+                    <th scope="col">InvoiceEndDate</th>
+                    <th scope="col">InvoiceAmt</th>
+                    <th scope="col">DiscountAmt</th>
+                    <th scope="col">DisbursedTotal</th>
+                    <th scope="col">DisbursedDate</th>
+                    <!-- <th scope="col">GoodAcceptanceDate</th> -->
+                    <th scope="col">RepaymentDate</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">CreatedBy</th>
+                    <th scope="col">CreatedOn</th>
+                    <!-- <th scope="col">ModifiedOn</th>
+                    <th scope="col">ModifiedBy</th> -->
+                    <th scope="col">BuyerID</th>
+                    <th scope="col">SellerID</th>
+                    <th scope="col">Function</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% fulData.forEach((task)=>{ %>
+                    <tr>
+                        <td style="max-width: 100px; overflow: auto; height: fit-content;">
+                            <%= task.invoiceNum %>
+                        </td>
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.invoiceStartDate %>
+                        </td>
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.invoiceEndDate %>
+                        </td>
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.invoiceAmount %>
+                        </td>
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.discountAmount %>
+                        </td>
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.disbursedTotal %>
+                        </td>
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.disbursedDate %>
+                        </td>
+                        <!-- <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.goodAcceptanceDate %>
+                        </td> -->
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.repaymentDate %>
+                        </td>
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.status %>
+                        </td>
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.createdBy %>
+                        </td>
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.createdOn %>
+                        </td>
+                        <!-- <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.modifiedOn %>
+                        </td>
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.modifiedBy %>
+                        </td> -->
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.buyerID %>
+                        </td>
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <%= task.sellerID %>
+                        </td>
+                        <td style="max-width: 250px; overflow: auto; height: fit-content;">
+                            <!-- <a class="btn btn-success" href="/updateinvoice/<%= task.invoiceNum %>">Update</a> -->
+                            <a class="btn btn-danger" href="/api/deleteinvoice/<%= task.invoiceNum %>/<%= page %>">Delete</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item" id="prev">
+                <a class="page-link" href="/api/allinvoices/<%= prev %>" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="/api/allinvoices/<%= page %>">
+                  <%= page %>
+                </a></li>
+              <li class="page-item" id="next">
+                <a class="page-link" href="/api/allinvoices/<%= next %>" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+    </div>
+    <script>
+        let pre = document.getElementById("prev");
+        let nex = document.getElementById("next");
+        if (!<%= prev %>) {
+          pre.classList.add("disabled")
+        }
+        if (!<%= next %>) {
+          nex.classList.add("disabled")
+        }
+        console.log(<%= prev %>, <%= next %>);
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

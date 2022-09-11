@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Invoice</title>
+</head>
+
+<body>
+    <form action="/api/addinvoice" method="post">
+        <h1>API KEY</h1>
+        <input type="text" name="uniquekey" autofocus required>
+        <h1>Invoice Number</h1>
+        <input type="number" name="invoicenum" required>
+        <h1>Invoice Start Date</h1>
+        <input type="text" name="invoicestartdate" required>
+        <h1>Invoice End Date</h1>
+        <input type="text" name="invoiceenddate" required>
+        <h1>Invoice Amount</h1>
+        <input type="number" name="invoiceamount" required>
+        <h1>Discount Amount</h1>
+        <input type="number" name="discountamount" required>
+        <h1>Disbursed Total</h1>
+        <input type="number" name="disbursedtotal" required>
+        <h1>Disbursed Date</h1>
+        <input type="text" name="disburseddate" required>
+        <h1>Repayment Date</h1>
+        <input type="text" name="repaymentdate" required>
+        <br>
+        <button type="submit">CreateInvoice</button>
+    </form>
+</body>
+
+</html>

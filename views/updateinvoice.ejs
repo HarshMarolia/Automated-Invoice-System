@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update Invoice</title>
+</head>
+
+<body>
+    <% fulData.forEach((task)=>{ %>
+    <form action="/api/updateinvoice/<%= task.invoiceNum %>" method="post">
+        <h1>API KEY</h1>
+        <input type="text" name="uniquekey" required autofocus>
+        <h1>Invoice Number</h1>
+        <input type="number" name="invoicenum" value="<%= task.invoiceNum %>" disabled required>
+        <h1>Invoice Start Date</h1>
+        <input type="text" name="invoicestartdate" value="<%= task.invoiceStartDate %>" required>
+        <h1>Invoice End Date</h1>
+        <input type="text" name="invoiceenddate" value="<%= task.invoiceEndDate %>" required>
+        <h1>Invoice Amount</h1>
+        <input type="number" name="invoiceamount" value="<%= task.invoiceAmount %>" required>
+        <h1>Discount Amount</h1>
+        <input type="number" name="discountamount" value="<%= task.discountAmount %>" required>
+        <h1>Disbursed Total</h1>
+        <input type="number" name="disbursedtotal" value="<%= task.disbursedTotal %>" required>
+        <h1>Disbursed Date</h1>
+        <input type="text" name="disburseddate" value="<%= task.disbursedDate %>" required>
+        <h1>Good Acceptance Date</h1>
+        <input type="text" name="goodacceptancedate" value="<%= task.goodAcceptanceDate %>" required>
+        <h1>Repayment Date</h1>
+        <input type="text" name="repaymentdate" value="<%= task.repaymentDate %>" required>
+        <h1>Status</h1>
+        <input type="number" name="status" value="<%= task.status %>" required>
+        <button type="submit">UpdateInvoice</button>
+    </form>
+    <% }) %>
+</body>
+
+</html>
